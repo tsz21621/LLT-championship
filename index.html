@@ -99,7 +99,7 @@
   border:1.5px solid rgba(140,80,200,.4);
   border-radius:14px;
   box-shadow:0 8px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.07);
-  clip-path:polygon(6% 0,94% 0,100% 18%,100% 82%,94% 100%,6% 100%,0 82%,0 18%);
+  clip-path:polygon(5% 0,95% 0,100% 15%,100% 85%,95% 100%,5% 100%,0 85%,0 15%);
 }
 .pc.rank1 .pc-plate{
   background:linear-gradient(180deg,rgba(50,65,140,.97),rgba(75,35,115,.95));
@@ -142,21 +142,37 @@
 @keyframes goldGlow{0%,100%{filter:drop-shadow(0 4px 12px rgba(200,140,0,.6));}50%{filter:drop-shadow(0 4px 20px rgba(255,190,0,.9));}}
 .pc.rank1 .pc-medal svg{animation:goldGlow 2.4s ease-in-out infinite;}
 
-/* ── MOBILE ── */
-@media(max-width:650px){
+/* ── MOBILE — stepped layout like ref ── */
+@media(max-width:700px){
+  .podium-arena{border-radius:18px;}
+  .podium-title{font-size:11px;padding:20px 0 0;}
+
+  /* 3-column stepped grid on mobile too */
   .podium-stage{
-    grid-template-columns:1fr;
-    align-items:center;
-    gap:32px;
-    padding:50px 20px 0;
+    grid-template-columns:1fr 1.1fr 1fr;
+    align-items:end;
+    gap:6px;
+    padding:44px 10px 0;
+    max-width:100%;
   }
-  .pc{max-width:300px;width:100%;margin:0 auto;}
-  .pc-step{display:none;}
-  /* order: rank1 first */
-  .pc.rank2{order:2;}.pc.rank1{order:1;}.pc.rank3{order:3;}
-  .pc.rank1 .pc-avatar{width:62px;height:62px;}
-  .pc.rank1 .pc-name{font-size:16px;}
-  .pc.rank1 .pc-ret{font-size:16px;}
+
+  /* shrink cards to fit */
+  .pc-medal svg{width:44px!important;height:auto!important;}
+  .pc-avatar{width:38px!important;height:38px!important;font-size:11px!important;margin-bottom:6px;}
+  .pc.rank1 .pc-avatar{width:46px!important;height:46px!important;font-size:13px!important;}
+
+  .pc-plate{padding:9px 8px 8px;border-radius:10px;}
+  .pc-name{font-size:11px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:90px;}
+  .pc.rank1 .pc-name{font-size:12px!important;max-width:110px;}
+  .pc-acc{font-size:8px;}
+  .pc-ret{font-size:11px!important;padding:4px 10px!important;margin-top:6px;}
+  .pc.rank1 .pc-ret{font-size:13px!important;padding:5px 14px!important;}
+
+  /* stepped platform heights */
+  .pc-step{display:grid;height:28px!important;}
+  .pc.rank1 .pc-step{height:44px!important;}
+  .pc.rank2 .pc-step{height:22px!important;}
+  .pc.rank3 .pc-step{height:22px!important;}
 }
 .board-section{padding-top:12px}.board-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.board-title{padding:24px 27px 18px;display:block;border-bottom:1px solid var(--line)}.board-title h2{margin:5px 0 0;font-size:29px;letter-spacing:-.035em}.board-title .sort-note{font-size:11px;color:var(--muted2)}.table-head,.row{display:grid;grid-template-columns:72px minmax(220px,1.45fr) 150px 105px 150px 110px;align-items:center}.table-head{padding:12px 27px;background:#f8faff;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#7e899a;font-weight:900}.row{padding:0 27px;min-height:75px;border-bottom:1px solid var(--line);transition:.16s;cursor:default}.row:last-child{border-bottom:0}.row:hover{background:#f7faff}.rank-badge{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;font-weight:950;background:#edf1f6}.rank-1{background:#ffe5a0;color:#7b5200}.rank-2{background:#e5eaf0;color:#516074}.rank-3{background:#f2d7c7;color:#7b4224}.person{display:flex;align-items:center;gap:12px}.person .avatar{width:39px;height:39px;margin:0;border:0;box-shadow:none;font-size:12px}.person b{font-size:14px}.ret{font-size:21px;font-weight:950;color:var(--green);letter-spacing:-.025em}.ret.neg{color:var(--red)}.dd{font-size:13px;font-weight:800}.requirement{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:850}.req-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}.status{display:inline-flex;width:max-content;padding:7px 10px;border-radius:999px;font-size:10px;font-weight:900}.status.eligible{background:var(--green-bg);color:#087a55}.status.not_qualified,.status.pending{background:var(--amber-bg);color:#966300}.status.disqualified{background:var(--red-bg);color:#b32c35}
 .other-box{margin-top:17px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 22px}.other-title{font-size:12px;font-weight:900;margin-bottom:10px}.other-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.other-item{padding:13px;border:1px solid var(--line);border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}.other-item b{font-size:12px}.other-item small{font-size:9px;color:var(--muted2);display:block;margin-top:2px}.other-ret{font-weight:900;font-size:13px}.other-ret.pos{color:var(--green)}.other-ret.neg{color:var(--red)}
@@ -454,8 +470,8 @@ async function init() {
     // ถ้าเปิดจาก file:// browser จะ block fetch — แสดง message แนะนำ
     const isLocal = location.protocol === 'file:';
     showError(isLocal
-      ? 'เปิดผ่าน GitHub Pages เพื่อแสดงผล<br><small style="opacity:.7">การเปิดจาก file:// ไม่รองรับการโหลด data.json</small>'
-      : 'ไม่พบไฟล์ data.json<br><small style="opacity:.7">กรุณาอัปโหลด data.json ลง repo เดียวกัน</small>'
+      ? '⚠️ เปิดผ่าน GitHub Pages เพื่อแสดงผล<br><small style="opacity:.7">การเปิดจาก file:// ไม่รองรับการโหลด data.json</small>'
+      : '⚠️ ไม่พบไฟล์ data.json<br><small style="opacity:.7">กรุณาอัปโหลด data.json ลง repo เดียวกัน</small>'
     );
   }
 }
