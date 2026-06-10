@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NOVA TFEX Trading Championship — Public Leaderboard</title>
+<style>
+:root{
+  --navy:#071426;--navy2:#0b2446;--blue:#1769ff;--blue2:#61a0ff;
+  --paper:#f5f7fb;--card:#fff;--line:#e3e9f2;--ink:#0d1728;
+  --muted:#6f7b90;--muted2:#9aa5b6;--green:#079c68;--green-bg:#e7f8f1;
+  --red:#d83b45;--red-bg:#ffebed;--amber:#b67800;--amber-bg:#fff4d8;
+  --gold:#d99a1d;--silver:#8795a9;--bronze:#a85d31;
+  --shadow:0 18px 50px rgba(10,31,63,.09);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Noto Sans Thai",Tahoma,Arial,sans-serif;-webkit-font-smoothing:antialiased}button,select{font:inherit}.shell{max-width:1180px;margin:auto;padding:0 24px}.mono{font-variant-numeric:tabular-nums}
+.topbar{height:64px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}.topbar .shell{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:-.025em}.brand-mark{width:31px;height:24px;border:7px solid var(--ink);border-top:0;border-radius:0 0 22px 22px;transform:rotate(180deg)}.brand span{color:var(--blue)}.brand small{color:#7a879a;font-size:11px;letter-spacing:.08em;margin-left:4px}.nav{display:flex;gap:26px}.nav a{text-decoration:none;color:#657087;font-size:13px;font-weight:800}.nav a.active{color:var(--ink);position:relative}.nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:-22px;height:3px;background:var(--blue);border-radius:3px}.privacy-pill{font-size:11px;font-weight:850;color:#28517d;background:#eef5ff;border:1px solid #d8e7ff;padding:8px 12px;border-radius:999px}
+.hero{color:#fff;background:radial-gradient(circle at 79% 10%,rgba(23,105,255,.45),transparent 30%),radial-gradient(circle at 95% 82%,rgba(38,205,199,.18),transparent 28%),linear-gradient(125deg,var(--navy),#0b1a35 62%,#0b2a49);overflow:hidden;position:relative}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 50%,rgba(255,255,255,.025));pointer-events:none}.hero .shell{min-height:235px;display:flex;align-items:center;padding-top:42px;padding-bottom:44px;position:relative;z-index:1}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#88c5ff;font-weight:900}.hero h1{font-size:clamp(42px,6vw,67px);line-height:1.01;letter-spacing:-.055em;margin:12px 0 14px;max-width:680px}.hero h1 span{color:#5f9cff}.hero-copy{font-size:15px;color:#bdcbe0;line-height:1.75;max-width:610px;margin:0}
+.section{padding:62px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:23px}.kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);font-weight:950}.section-head h2{font-size:31px;letter-spacing:-.035em;margin:7px 0 0}.section-head p{margin:7px 0 0;color:var(--muted);font-size:13px}.updated{font-size:11px;color:var(--muted2);white-space:nowrap}
+.podium{max-width:980px;height:360px;margin:26px auto 0;position:relative;border-radius:24px;overflow:hidden;background:radial-gradient(circle at 50% 20%,rgba(73,107,255,.28),transparent 34%),linear-gradient(135deg,#081323 0%,#101a33 55%,#091221 100%);border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px rgba(6,18,38,.20)}
+.podium:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.10) 1px,transparent 1px);background-size:10px 10px;opacity:.32;pointer-events:none}.podium:after{content:"";position:absolute;left:0;right:0;top:0;height:10px;background:repeating-linear-gradient(45deg,#1769ff 0 10px,#8a3df0 10px 20px)}
+.podium-card{position:absolute;width:31%;text-align:center;color:#fff;z-index:2}.podium-card:nth-child(1){left:3.5%;top:180px}.podium-card:nth-child(2){left:34.5%;top:82px}.podium-card:nth-child(3){right:3.5%;top:180px}
+.award-medal{position:absolute;top:-55px;left:50%;transform:translateX(-50%);width:72px;height:76px;z-index:5;filter:drop-shadow(0 8px 9px rgba(0,0,0,.35))}.award-medal .ribbon{position:absolute;top:0;width:23px;height:42px;background:linear-gradient(180deg,#315cd7 0%,#173786 100%);border:1px solid rgba(255,255,255,.22)}.award-medal .ribbon-left{left:13px;transform:skew(-9deg);clip-path:polygon(0 0,100% 0,83% 100%,48% 80%,15% 100%)}.award-medal .ribbon-right{right:13px;transform:skew(9deg);clip-path:polygon(0 0,100% 0,85% 100%,52% 80%,17% 100%)}.award-medal .coin{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:19px;font-weight:950;line-height:1;border:4px solid rgba(255,255,255,.7);box-shadow:inset 0 0 0 3px rgba(255,255,255,.20),inset 0 -7px 12px rgba(0,0,0,.18)}.award-medal .coin:before{content:'★';position:absolute;top:7px;font-size:9px;opacity:.55}.award-medal .coin span{padding-top:10px}.award-medal.m1 .coin{background:radial-gradient(circle at 35% 28%,#fff4a7 0 13%,#ffd866 31%,#d38b00 74%,#9f6200 100%);color:#6c4200;border-color:#fff0ac}.award-medal.m1 .ribbon{background:linear-gradient(180deg,#f5b42f,#9b5f00)}.award-medal.m2 .coin{background:radial-gradient(circle at 35% 28%,#fff 0 13%,#dce4ec 31%,#8f9bab 74%,#667184 100%);color:#344155;border-color:#f5f7fb}.award-medal.m2 .ribbon{background:linear-gradient(180deg,#8ea0b9,#4d5e78)}.award-medal.m3 .coin{background:radial-gradient(circle at 35% 28%,#ffd0a8 0 13%,#d9894d 31%,#9b4b22 74%,#6e2f13 100%);color:#fff2e7;border-color:#ffd1ae}.award-medal.m3 .ribbon{background:linear-gradient(180deg,#b96531,#713519)}
+.avatar{width:52px;height:52px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;background:linear-gradient(145deg,#dce9ff,#9ec0ff);border:4px solid rgba(255,255,255,.85);box-shadow:0 7px 18px rgba(0,0,0,.25);font-size:14px;font-weight:950;color:#0d1728}.first .avatar{width:62px;height:62px;background:linear-gradient(145deg,#ffe9a8,#ffc94d)}
+.nameplate{position:relative;min-height:78px;padding:16px 28px 14px;background:linear-gradient(180deg,#3947b7 0%,#672f94 100%);border:3px solid #aa56d6;clip-path:polygon(8% 0,92% 0,100% 28%,100% 72%,92% 100%,8% 100%,0 72%,0 28%);box-shadow:0 12px 25px rgba(0,0,0,.28)}.first .nameplate{background:linear-gradient(180deg,#4163d9 0%,#713ca4 100%);border-color:#c274e6;min-height:88px;padding-top:18px}
+.podium-name{font-size:16px;font-weight:950;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.masked{font-size:10px;color:#d9e1f2;margin-top:4px}.podium-return{display:inline-block;margin-top:8px;padding:5px 18px;background:#2d2b66;border:1px solid rgba(255,255,255,.16);clip-path:polygon(10% 0,90% 0,100% 50%,90% 100%,10% 100%,0 50%);font-size:16px;color:#fff;font-weight:950;letter-spacing:-.02em}.first .podium-return{font-size:19px;background:#233d85}
+@media(max-width:650px){.podium{height:auto;padding:54px 16px 18px}.podium-card,.podium-card:nth-child(1),.podium-card:nth-child(2),.podium-card:nth-child(3){position:relative;left:auto;right:auto;top:auto;width:100%;margin:0 0 42px}.podium-card:nth-child(2){order:-1}.podium-card:last-child{margin-bottom:8px}.nameplate{max-width:360px;margin:auto}.avatar{margin-bottom:12px}}
+.board-section{padding-top:12px}.board-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.board-title{padding:24px 27px 18px;display:block;border-bottom:1px solid var(--line)}.board-title h2{margin:5px 0 0;font-size:29px;letter-spacing:-.035em}.board-title .sort-note{font-size:11px;color:var(--muted2)}.table-head,.row{display:grid;grid-template-columns:72px minmax(220px,1.45fr) 150px 105px 150px 110px;align-items:center}.table-head{padding:12px 27px;background:#f8faff;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#7e899a;font-weight:900}.row{padding:0 27px;min-height:75px;border-bottom:1px solid var(--line);transition:.16s;cursor:default}.row:last-child{border-bottom:0}.row:hover{background:#f7faff}.rank-badge{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;font-weight:950;background:#edf1f6}.rank-1{background:#ffe5a0;color:#7b5200}.rank-2{background:#e5eaf0;color:#516074}.rank-3{background:#f2d7c7;color:#7b4224}.person{display:flex;align-items:center;gap:12px}.person .avatar{width:39px;height:39px;margin:0;border:0;box-shadow:none;font-size:12px}.person b{font-size:14px}.ret{font-size:21px;font-weight:950;color:var(--green);letter-spacing:-.025em}.ret.neg{color:var(--red)}.dd{font-size:13px;font-weight:800}.requirement{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:850}.req-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}.status{display:inline-flex;width:max-content;padding:7px 10px;border-radius:999px;font-size:10px;font-weight:900}.status.eligible{background:var(--green-bg);color:#087a55}.status.not_qualified,.status.pending{background:var(--amber-bg);color:#966300}.status.disqualified{background:var(--red-bg);color:#b32c35}
+.other-box{margin-top:17px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 22px}.other-title{font-size:12px;font-weight:900;margin-bottom:10px}.other-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.other-item{padding:13px;border:1px solid var(--line);border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}.other-item b{font-size:12px}.other-item small{font-size:9px;color:var(--muted2);display:block;margin-top:2px}.other-ret{font-weight:900;font-size:13px}.other-ret.pos{color:var(--green)}.other-ret.neg{color:var(--red)}
+.rules{display:grid;grid-template-columns:1.1fr repeat(3,1fr);background:#fff;border:1px solid var(--line);border-radius:17px;margin-top:22px;overflow:hidden}.rule{padding:19px 21px;border-left:1px solid var(--line)}.rule:first-child{border-left:0;background:#f7faff}.rule strong{font-size:12px;display:block}.rule span{font-size:10px;color:var(--muted);display:block;line-height:1.55;margin-top:5px}.rule-kicker{font-size:10px!important;color:var(--blue)!important;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+footer{background:#071426;color:#9aacbf;padding:28px 0;font-size:10px}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-row strong{color:#fff;display:block;margin-bottom:4px}
+/* LOADING STATE */
+.loading-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:320px;gap:16px;color:var(--muted)}
+.spinner{width:36px;height:36px;border:3px solid var(--line);border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-wrap{max-width:480px;margin:60px auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;text-align:center;box-shadow:var(--shadow)}
+.error-wrap h3{margin:0 0 8px;font-size:18px}.error-wrap p{color:var(--muted);font-size:13px;line-height:1.65;margin:0}
+@media(max-width:900px){.hero .shell{display:flex}.table-head,.row{grid-template-columns:62px 1fr 130px 95px 100px}.other-grid{grid-template-columns:1fr}.rules{grid-template-columns:1fr 1fr}.rule:nth-child(3){border-left:0;border-top:1px solid var(--line)}.rule:nth-child(4){border-top:1px solid var(--line)}.nav{display:none}}
+@media(max-width:650px){.shell{padding:0 15px}.topbar{height:57px}.privacy-pill{display:none}.hero .shell{padding-top:35px;padding-bottom:38px}.hero h1{font-size:43px}.section{padding:48px 0}.table-head{display:none}.row{grid-template-columns:48px 1fr 105px;padding:12px 16px;min-height:78px}.row .dd,.row .requirement,.row .status{display:none}.ret{text-align:right}.board-title{padding:20px 17px}.rules{grid-template-columns:1fr}.rule{border-left:0;border-top:1px solid var(--line)}.rule:first-child{border-top:0}.footer-row{display:block}.footer-row>div+div{margin-top:12px}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="shell">
+    <div class="brand"><i class="brand-mark"></i><div>NOVA<span>STOCK</span><small>TFEX</small></div></div>
+    <nav class="nav"><a class="active" href="#leaderboard">Leaderboard</a><a href="#rules">Rules</a></nav>
+    <div class="privacy-pill">🔒 Privacy-safe public view</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="shell">
+    <div>
+      <div class="eyebrow">NOVA TFEX TRADING CHAMPIONSHIP</div>
+      <h1>Competition <span>Leaderboard</span></h1>
+      <p class="hero-copy">อันดับผู้เข้าแข่งขันเรียงตาม Time-Weighted Return · ข้อมูลอัปเดตทุกวัน</p>
+    </div>
+  </div>
+</section>
+
+<!-- PODIUM SECTION -->
+<section class="section">
+  <div class="shell">
+    <div class="section-head">
+      <div><h2>Top Performers</h2></div>
+      <div class="updated" id="last-update">กำลังโหลด...</div>
+    </div>
+    <div class="podium" id="podium">
+      <div class="loading-wrap"><div class="spinner"></div><span>กำลังโหลดข้อมูล...</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERBOARD TABLE -->
+<section class="section board-section" id="leaderboard">
+  <div class="shell">
+    <div class="board-card">
+      <div class="board-title">
+        <div><div class="kicker">OFFICIAL LEADERBOARD</div><h2>จัดอันดับตาม Return (TWR)</h2></div>
+      </div>
+      <div class="table-head">
+        <div>Rank</div><div>Participant</div><div>Return (TWR)</div>
+        <div>Max DD</div><div>Activity rule</div><div>Status</div>
+      </div>
+      <div id="officialRows">
+        <div class="loading-wrap"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- NON-ELIGIBLE -->
+    <div id="otherBox" class="other-box" style="display:none">
+      <div class="other-title">ผู้เข้าแข่งขันอื่น (ยังไม่ผ่านเกณฑ์ / ตัดสิทธิ์)</div>
+      <div class="other-grid" id="otherGrid"></div>
+    </div>
+
+    <!-- RULES -->
+    <div class="rules" id="rules">
+      <div class="rule"><span class="rule-kicker">Rule summary</span><strong>หลักเกณฑ์ที่ใช้บนหน้า Public Leaderboard</strong><span>หน้าเว็บนี้แสดงเฉพาะข้อมูลที่จำเป็นต่อการติดตามผลการแข่งขัน</span></div>
+      <div class="rule"><strong>Ranked by Return (TWR)</strong><span>อันดับทางการเรียงตาม Time-Weighted Return</span></div>
+      <div class="rule"><strong>Minimum activity</strong><span>ต้องผ่านเกณฑ์กิจกรรมขั้นต่ำก่อนมีอันดับ</span></div>
+      <div class="rule" id="ruleDd"><strong>Max DD 30%</strong><span>Max Drawdown เกิน 30% จะถูกตัดสิทธิ์</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell footer-row">
+    <div><strong>NOVA TFEX Trading Championship</strong>Public leaderboard</div>
+    <div>🔒 ชื่อจริงและมูลค่าพอร์ตถูกซ่อนไว้ทั้งหมด</div>
+    <div>© 2025 NOVASTOCK · TFEX</div>
+  </div>
+</footer>
+
+<script>
+// ─── helpers ───────────────────────────────────────────────
+const fmtPct = (v, d=2) => `${v>=0?'+':''}${(v*100).toFixed(d)}%`;
+const fmtDD  = v => `${(v*100).toFixed(2)}%`;
+const maskName = n => {
+  const s = String(n||'').trim();
+  if(!s) return 'Participant';
+  if(s.length===1) return '****';
+  if(s.length<=4) return s[0]+'****'+s.slice(-1);
+  return s.slice(0,2)+'****'+s.slice(-2);
+};
+
+// ─── render podium ─────────────────────────────────────────
+function renderPodium(eligible) {
+  if(!eligible.length){
+    document.getElementById('podium').innerHTML='<div class="loading-wrap"><span style="font-size:13px;color:#9fb0c5">ยังไม่มีผู้ผ่านเกณฑ์</span></div>';
+    return;
+  }
+  // layout: 2nd left · 1st center · 3rd right
+  const order  = [eligible[1], eligible[0], eligible[2]].filter(Boolean);
+  const medals = [2, 1, 3];
+  document.getElementById('podium').innerHTML = order.map((p,i) => {
+    const m = medals[i];
+    return `
+    <article class="podium-card ${m===1?'first':''}">
+      <div class="award-medal m${m}">
+        <span class="ribbon ribbon-left"></span>
+        <span class="ribbon ribbon-right"></span>
+        <span class="coin"><span>${m}</span></span>
+      </div>
+      <div class="avatar">${p.initials}</div>
+      <div class="nameplate">
+        <div class="podium-name">${maskName(p.nickname)}</div>
+        <div class="masked">${p.account_masked}</div>
+        <div class="podium-return mono">${fmtPct(p.return)}</div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+// ─── render official rows ──────────────────────────────────
+function renderRows(eligible) {
+  document.getElementById('officialRows').innerHTML = eligible.map(p => `
+    <div class="row">
+      <div><span class="rank-badge rank-${p.official_rank<=3?p.official_rank:''}">${p.official_rank}</span></div>
+      <div class="person">
+        <div class="avatar">${p.initials}</div>
+        <div><b>${maskName(p.nickname)}</b><div class="masked">${p.account_masked}</div></div>
+      </div>
+      <div class="ret mono ${p.return<0?'neg':''}">${fmtPct(p.return)}</div>
+      <div class="dd mono">${fmtDD(p.max_dd)}</div>
+      <div class="requirement"><i class="req-dot"></i>Completed</div>
+      <div><span class="status eligible">Eligible</span></div>
+    </div>`).join('');
+}
+
+// ─── render others box ─────────────────────────────────────
+function renderOthers(others) {
+  if(!others.length) return;
+  document.getElementById('otherBox').style.display = '';
+  document.getElementById('otherGrid').innerHTML = others.map(p => `
+    <div class="other-item">
+      <div>
+        <b>${maskName(p.nickname)}</b>
+        <small>${p.account_masked}</small>
+      </div>
+      <div>
+        <div class="other-ret ${p.return>=0?'pos':'neg'}">${p.has_data?fmtPct(p.return):'—'}</div>
+        <div style="text-align:right;margin-top:4px"><span class="status ${p.status}" style="font-size:9px;padding:4px 8px">${p.status_label}</span></div>
+      </div>
+    </div>`).join('');
+}
+
+// ─── show error ────────────────────────────────────────────
+function showError(msg) {
+  document.getElementById('podium').innerHTML = `
+    <div class="loading-wrap">
+      <span style="font-size:13px;color:#c9d4e0;text-align:center;padding:0 24px">${msg}</span>
+    </div>`;
+  document.getElementById('officialRows').innerHTML = '';
+}
+
+// ─── main: fetch data.json ─────────────────────────────────
+async function init() {
+  try {
+    const res = await fetch('data.json');
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+
+    // รองรับทั้ง { meta, participants } และ array ตรงๆ
+    const all  = Array.isArray(json) ? json : (json.participants || []);
+    const meta = Array.isArray(json) ? null : (json.meta || null);
+
+    if(!all.length) throw new Error('ไม่พบข้อมูล participants');
+
+    const eligible = all.filter(p=>p.status==='eligible').sort((a,b)=>b.return-a.return);
+    const others   = all.filter(p=>p.status!=='eligible');
+
+    // last update — เอาจาก eligible คนแรก หรือ meta
+    const lastUpd = eligible[0]?.updated || (meta?.exported_at ? meta.exported_at.slice(0,10) : '—');
+    document.getElementById('last-update').textContent = 'Last update: ' + lastUpd;
+
+    // update rule DD limit from meta
+    if(meta?.dd_limit) {
+      document.getElementById('ruleDd').innerHTML =
+        `<strong>Max DD ${meta.dd_limit}%</strong><span>Max Drawdown เกิน ${meta.dd_limit}% จะถูกตัดสิทธิ์</span>`;
+    }
+
+    renderPodium(eligible);
+    renderRows(eligible);
+    renderOthers(others);
+
+  } catch(err) {
+    console.error(err);
+    // ถ้าเปิดจาก file:// browser จะ block fetch — แสดง message แนะนำ
+    const isLocal = location.protocol === 'file:';
+    showError(isLocal
+      ? '⚠️ เปิดผ่าน GitHub Pages เพื่อแสดงผล<br><small style="opacity:.7">การเปิดจาก file:// ไม่รองรับการโหลด data.json</small>'
+      : '⚠️ ไม่พบไฟล์ data.json<br><small style="opacity:.7">กรุณาอัปโหลด data.json ลง repo เดียวกัน</small>'
+    );
+  }
+}
+
+init();
+</script>
+</body>
+</html>
