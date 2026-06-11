@@ -206,7 +206,13 @@
   }
   .pc-step{font-size:10px!important;}
 }
-.board-section{padding-top:12px}.board-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.board-title{padding:24px 27px 18px;display:block;border-bottom:1px solid var(--line)}.board-title h2{margin:5px 0 0;font-size:29px;letter-spacing:-.035em}.board-title .sort-note{font-size:11px;color:var(--muted2)}.table-head,.row{display:grid;grid-template-columns:72px minmax(220px,1.45fr) 150px 105px 150px 110px;align-items:center}.table-head{padding:12px 27px;background:#f8faff;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#7e899a;font-weight:900}.row{padding:0 27px;min-height:75px;border-bottom:1px solid var(--line);transition:.16s;cursor:default}.row:last-child{border-bottom:0}.row:hover{background:#f7faff}.rank-badge{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;font-weight:950;background:#edf1f6}.rank-1{background:#ffe5a0;color:#7b5200}.rank-2{background:#e5eaf0;color:#516074}.rank-3{background:#f2d7c7;color:#7b4224}.person{display:flex;align-items:center;gap:12px}.person .avatar{width:39px;height:39px;margin:0;border:0;box-shadow:none;font-size:12px}.person b{font-size:14px}.ret{font-size:21px;font-weight:950;color:var(--green);letter-spacing:-.025em}.ret.neg{color:var(--red)}.dd{font-size:13px;font-weight:800}.requirement{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:850}.req-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}.status{display:inline-flex;width:max-content;padding:7px 10px;border-radius:999px;font-size:10px;font-weight:900}.status.eligible{background:var(--green-bg);color:#087a55}.status.not_qualified,.status.pending{background:var(--amber-bg);color:#966300}.status.disqualified{background:var(--red-bg);color:#b32c35}
+.board-section{padding-top:12px}.board-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.rows-scroll{max-height:760px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--blue) #e8eef7;}
+.rows-scroll::-webkit-scrollbar{width:5px;}
+.rows-scroll::-webkit-scrollbar-track{background:#f0f4fb;border-radius:99px;}
+.rows-scroll::-webkit-scrollbar-thumb{background:var(--blue);border-radius:99px;opacity:.7;}
+/* mobile: แถวสูง 68px × 10 = 680px */
+@media(max-width:650px){.rows-scroll{max-height:680px;}}.board-title{padding:24px 27px 18px;display:block;border-bottom:1px solid var(--line)}.board-title h2{margin:5px 0 0;font-size:29px;letter-spacing:-.035em}.board-title .sort-note{font-size:11px;color:var(--muted2)}.table-head,.row{display:grid;grid-template-columns:72px minmax(220px,1.45fr) 150px 105px 150px 110px;align-items:center}.table-head{padding:12px 27px;background:#f8faff;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#7e899a;font-weight:900}.row{padding:0 27px;min-height:75px;border-bottom:1px solid var(--line);transition:.16s;cursor:default}.row:last-child{border-bottom:0}.row:hover{background:#f7faff}.rank-badge{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;font-weight:950;background:#edf1f6}.rank-1{background:#ffe5a0;color:#7b5200}.rank-2{background:#e5eaf0;color:#516074}.rank-3{background:#f2d7c7;color:#7b4224}.person{display:flex;align-items:center;gap:12px}.person .avatar{width:39px;height:39px;margin:0;border:0;box-shadow:none;font-size:12px}.person b{font-size:14px}.ret{font-size:21px;font-weight:950;color:var(--green);letter-spacing:-.025em}.ret.neg{color:var(--red)}.dd{font-size:13px;font-weight:800}.requirement{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:850}.req-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}.status{display:inline-flex;width:max-content;padding:7px 10px;border-radius:999px;font-size:10px;font-weight:900}.status.eligible{background:var(--green-bg);color:#087a55}.status.not_qualified,.status.pending{background:var(--amber-bg);color:#966300}.status.disqualified{background:var(--red-bg);color:#b32c35}
 .other-box{margin-top:17px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 22px}.other-title{font-size:12px;font-weight:900;margin-bottom:10px}.other-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.other-item{padding:13px;border:1px solid var(--line);border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}.other-item b{font-size:12px}.other-item small{font-size:9px;color:var(--muted2);display:block;margin-top:2px}.other-ret{font-weight:900;font-size:13px}.other-ret.pos{color:var(--green)}.other-ret.neg{color:var(--red)}
 .rules{display:grid;grid-template-columns:1.1fr repeat(3,1fr);background:#fff;border:1px solid var(--line);border-radius:17px;margin-top:22px;overflow:hidden}.rule{padding:19px 21px;border-left:1px solid var(--line)}.rule:first-child{border-left:0;background:#f7faff}.rule strong{font-size:12px;display:block}.rule span{font-size:10px;color:var(--muted);display:block;line-height:1.55;margin-top:5px}.rule-kicker{font-size:10px!important;color:var(--blue)!important;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
 footer{background:#071426;color:#9aacbf;padding:28px 0;font-size:10px}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-row strong{color:#fff;display:block;margin-bottom:4px}
@@ -295,16 +301,14 @@ footer{background:#071426;color:#9aacbf;padding:28px 0;font-size:10px}.footer-ro
         <div>Rank</div><div>Participant</div><div>Return (TWR)</div>
         <div>Max DD</div><div>Activity rule</div><div>Status</div>
       </div>
-      <div id="officialRows">
-        <div class="loading-wrap"><div class="spinner"></div></div>
+      <div class="rows-scroll">
+        <div id="officialRows">
+          <div class="loading-wrap"><div class="spinner"></div></div>
+        </div>
       </div>
     </div>
 
-    <!-- NON-ELIGIBLE -->
-    <div id="otherBox" class="other-box" style="display:none">
-      <div class="other-title">ผู้เข้าแข่งขันอื่น (ยังไม่ผ่านเกณฑ์ / ตัดสิทธิ์)</div>
-      <div class="other-grid" id="otherGrid"></div>
-    </div>
+
 
     <!-- RULES -->
     <div class="rules" id="rules">
@@ -377,9 +381,10 @@ function renderPodium(eligible) {
   }).join('');
 }
 
-// ─── render official rows ──────────────────────────────────
+// ─── render official rows (top 20) ────────────────────────
 function renderRows(eligible) {
-  document.getElementById('officialRows').innerHTML = eligible.map(p => `
+  const top20 = eligible.slice(0, 20);
+  document.getElementById('officialRows').innerHTML = top20.map(p => `
     <div class="row">
       <div><span class="rank-badge rank-${p.official_rank<=3?p.official_rank:''}">${p.official_rank}</span></div>
       <div class="person">
@@ -393,22 +398,7 @@ function renderRows(eligible) {
     </div>`).join('');
 }
 
-// ─── render others box ─────────────────────────────────────
-function renderOthers(others) {
-  if(!others.length) return;
-  document.getElementById('otherBox').style.display = '';
-  document.getElementById('otherGrid').innerHTML = others.map(p => `
-    <div class="other-item">
-      <div>
-        <b>${maskName(p.nickname)}</b>
-        <small>${p.account_masked}</small>
-      </div>
-      <div>
-        <div class="other-ret ${p.return>=0?'pos':'neg'}">${p.has_data?fmtPct(p.return):'—'}</div>
-        <div style="text-align:right;margin-top:4px"><span class="status ${p.status}" style="font-size:9px;padding:4px 8px">${p.status_label}</span></div>
-      </div>
-    </div>`).join('');
-}
+
 
 // ─── show error ────────────────────────────────────────────
 function showError(msg) {
@@ -433,7 +423,7 @@ async function init() {
     if(!all.length) throw new Error('ไม่พบข้อมูล participants');
 
     const eligible = all.filter(p=>p.status==='eligible').sort((a,b)=>b.return-a.return);
-    const others   = all.filter(p=>p.status!=='eligible');
+
 
     // last update — เอาจาก eligible คนแรก หรือ meta
     const lastUpd = eligible[0]?.updated || (meta?.exported_at ? meta.exported_at.slice(0,10) : '—');
@@ -447,7 +437,7 @@ async function init() {
 
     renderPodium(eligible);
     renderRows(eligible);
-    renderOthers(others);
+
 
   } catch(err) {
     console.error(err);
